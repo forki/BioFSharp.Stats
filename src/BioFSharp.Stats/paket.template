@@ -1,0 +1,25 @@
+type project
+title
+    BioFSharp.Stats
+owners
+    Timo Mühlhaus
+authors 
+    Timo Mühlhaus
+projectUrl
+    http://github.com/muehlhaus/BioFSharp.Stats
+iconUrl
+    https://raw.githubusercontent.com/muehlhaus/BioFSharp.Stats/master/docs/files/img/logo.png
+licenseUrl
+    http://github.com/muehlhaus/BioFSharp.Stats/blob/master/LICENSE.txt
+requireLicenseAcceptance
+    false
+copyright
+    Copyright 2015
+tags
+    bioinformatics statistics F# fsharp
+summary
+    FsharpBio.Stats aims to be a user-friendly library for statistics used in bioinformatics written in F#.
+description
+    FsharpBio.Stats aims to be a user-friendly library for statistics used in bioinformatics written in F#.
+
+
