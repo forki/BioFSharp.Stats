@@ -87,28 +87,8 @@
 <span class="l">24: </span>
 <span class="l">25: </span>
 <span class="l">26: </span>
-<span class="l">27: </span>
-<span class="l">28: </span>
-<span class="l">29: </span>
-<span class="l">30: </span>
-<span class="l">31: </span>
-<span class="l">32: </span>
-<span class="l">33: </span>
-<span class="l">34: </span>
-<span class="l">35: </span>
-<span class="l">36: </span>
-<span class="l">37: </span>
-<span class="l">38: </span>
-<span class="l">39: </span>
-<span class="l">40: </span>
 </pre></td>
-<td class="snippet"><pre class="fssnip highlighted"><code lang="fsharp"><span class="c">//let xVector = vector [0.25; 0.5; 1. ; 2.;]</span>
-<span class="c">//let yVector = vector [-9.48332; -8.61472;  -10.4905;  -11.0471;]</span>
-
-<span class="c">//let xVector = vector [0.25; 0.5; 1. ; 2.; 0.25; 0.5; 1. ; 2.; 0.25; 0.5; 1. ; 2.;]</span>
-<span class="c">//let yVector = vector [-9.48332; -8.61472;  -10.4905;  -11.0471; -8.27642;  -7.63456;  -11.4213;  -12.26; -6.01979;  -7.26284;  -8.65068;  -8.00442;]</span>
-
-<span class="c">// Test versus http://www.cyclismo.org/tutorial/R/linearLeastSquares.html</span>
+<td class="snippet"><pre class="fssnip highlighted"><code lang="fsharp"><span class="c">// Test versus http://www.cyclismo.org/tutorial/R/linearLeastSquares.html</span>
 <span class="k">let</span> <span onmouseout="hideTip(event, 'fs10', 17)" onmouseover="showTip(event, 'fs10', 17)" class="i">xVector</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs11', 18)" onmouseover="showTip(event, 'fs11', 18)" class="f">vector</span> [<span class="n">2000.</span>;   <span class="n">2001.</span>;  <span class="n">2002.</span>;  <span class="n">2003.</span>;   <span class="n">2004.</span>;]
 <span class="k">let</span> <span onmouseout="hideTip(event, 'fs12', 19)" onmouseover="showTip(event, 'fs12', 19)" class="i">yVector</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs11', 20)" onmouseover="showTip(event, 'fs11', 20)" class="f">vector</span> [<span class="n">9.34</span>;   <span class="n">8.50</span>;  <span class="n">7.62</span>;  <span class="n">6.93</span>;  <span class="n">6.60</span>;]
 
@@ -134,17 +114,29 @@
 
 <span onmouseout="hideTip(event, 'fs14', 78)" onmouseover="showTip(event, 'fs14', 78)" class="t">Regression</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs38', 79)" onmouseover="showTip(event, 'fs38', 79)" class="f">getResiduals</span> <span onmouseout="hideTip(event, 'fs17', 80)" onmouseover="showTip(event, 'fs17', 80)" class="f">fit</span> <span onmouseout="hideTip(event, 'fs10', 81)" onmouseover="showTip(event, 'fs10', 81)" class="i">xVector</span> <span onmouseout="hideTip(event, 'fs12', 82)" onmouseover="showTip(event, 'fs12', 82)" class="i">yVector</span>
 <span onmouseout="hideTip(event, 'fs14', 83)" onmouseover="showTip(event, 'fs14', 83)" class="t">Regression</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs39', 84)" onmouseover="showTip(event, 'fs39', 84)" class="f">calculateSSE</span> <span onmouseout="hideTip(event, 'fs17', 85)" onmouseover="showTip(event, 'fs17', 85)" class="f">fit</span> <span onmouseout="hideTip(event, 'fs10', 86)" onmouseover="showTip(event, 'fs10', 86)" class="i">xVector</span> <span onmouseout="hideTip(event, 'fs12', 87)" onmouseover="showTip(event, 'fs12', 87)" class="i">yVector</span>
-
-
-[
+</code></pre></td>
+</tr>
+</table>
+<table class="pre"><tr><td class="lines"><pre class="fssnip"><span class="l">1: </span>
+<span class="l">2: </span>
+<span class="l">3: </span>
+<span class="l">4: </span>
+<span class="l">5: </span>
+</pre></td>
+<td class="snippet"><pre class="fssnip highlighted"><code lang="fsharp">[
     <span onmouseout="hideTip(event, 'fs40', 88)" onmouseover="showTip(event, 'fs40', 88)" class="t">Chart</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs41', 89)" onmouseover="showTip(event, 'fs41', 89)" class="f">Point</span>(<span onmouseout="hideTip(event, 'fs42', 90)" onmouseover="showTip(event, 'fs42', 90)" class="t">Seq</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs43', 91)" onmouseover="showTip(event, 'fs43', 91)" class="f">zip</span> <span onmouseout="hideTip(event, 'fs10', 92)" onmouseover="showTip(event, 'fs10', 92)" class="i">xVector</span> <span onmouseout="hideTip(event, 'fs12', 93)" onmouseover="showTip(event, 'fs12', 93)" class="i">yVector</span>,<span class="i">Name</span><span class="o">=</span><span class="s">&quot;data points&quot;</span>);
     <span onmouseout="hideTip(event, 'fs40', 94)" onmouseover="showTip(event, 'fs40', 94)" class="t">Chart</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs44', 95)" onmouseover="showTip(event, 'fs44', 95)" class="f">Line</span>(<span onmouseout="hideTip(event, 'fs42', 96)" onmouseover="showTip(event, 'fs42', 96)" class="t">Seq</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs43', 97)" onmouseover="showTip(event, 'fs43', 97)" class="f">zip</span> <span onmouseout="hideTip(event, 'fs10', 98)" onmouseover="showTip(event, 'fs10', 98)" class="i">xVector</span> <span onmouseout="hideTip(event, 'fs19', 99)" onmouseover="showTip(event, 'fs19', 99)" class="i">regLine</span>,<span class="i">Name</span> <span class="o">=</span><span class="s">&quot;regression&quot;</span>)
 ]
 <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs40', 100)" onmouseover="showTip(event, 'fs40', 100)" class="t">Chart</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs45', 101)" onmouseover="showTip(event, 'fs45', 101)" class="f">Combine</span>
-<span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs40', 102)" onmouseover="showTip(event, 'fs40', 102)" class="t">Chart</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs46', 103)" onmouseover="showTip(event, 'fs46', 103)" class="f">Show</span>
 </code></pre></td>
 </tr>
 </table>
+<div id="993fd180-0847-4717-85bc-0a5bc8edd81d" style="width: 700px; height: 500px;"><!-- Plotly chart will be drawn inside this DIV --></div>        
+  <script>
+    var data = [{"x":[2000.0,2001.0,2002.0,2003.0,2004.0],"y":[9.34,8.5,7.62,6.93,6.6],"mode":"markers","type":"scatter","name":"data points","marker":{}},{"x":[2000.0,2001.0,2002.0,2003.0,2004.0],"y":[9.208000000000311,8.5030000000001564,7.7980000000000018,7.0930000000000746,6.38799999999992],"mode":"lines+markers","type":"scatter","name":"regression","line":{},"marker":{}}];
+    var layout = {};
+    Plotly.newPlot('993fd180-0847-4717-85bc-0a5bc8edd81d', data, layout);
+  </script>
 
 <div class="tip" id="fs1">Multiple items<br />namespace FSharp<br /><br />--------------------<br />namespace Microsoft.FSharp</div>
 <div class="tip" id="fs2">namespace FSharp.Plotly</div>
@@ -191,7 +183,6 @@
 <div class="tip" id="fs43">val zip : source1:seq&lt;&#39;T1&gt; -&gt; source2:seq&lt;&#39;T2&gt; -&gt; seq&lt;&#39;T1 * &#39;T2&gt;<br /><br />Full name: Microsoft.FSharp.Collections.Seq.zip</div>
 <div class="tip" id="fs44">static member Chart.Line : xy:seq&lt;#System.IConvertible * #System.IConvertible&gt; * ?Name:string * ?ShowMarkers:bool * ?Showlegend:bool * ?MarkerSymbol:StyleOption.Symbol * ?Color:&#39;c * ?Opacity:float * ?Labels:seq&lt;#System.IConvertible&gt; * ?TextPosition:StyleOption.TextPosition * ?TextFont:FontOptions * ?Dash:StyleOption.DrawingStyle * ?Width:&#39;e -&gt; GenericChart.GenericChart<br />static member Chart.Line : x:seq&lt;#System.IConvertible&gt; * y:seq&lt;#System.IConvertible&gt; * ?Name:string * ?ShowMarkers:bool * ?Showlegend:bool * ?MarkerSymbol:StyleOption.Symbol * ?Color:&#39;a2 * ?Opacity:float * ?Labels:seq&lt;#System.IConvertible&gt; * ?TextPosition:StyleOption.TextPosition * ?TextFont:FontOptions * ?Dash:StyleOption.DrawingStyle * ?Width:&#39;a4 -&gt; GenericChart.GenericChart</div>
 <div class="tip" id="fs45">static member Chart.Combine : gCharts:seq&lt;GenericChart.GenericChart&gt; -&gt; GenericChart.GenericChart</div>
-<div class="tip" id="fs46">static member Chart.Show : ch:GenericChart.GenericChart -&gt; unit</div>
 
         </div>
         <div class="span3">
