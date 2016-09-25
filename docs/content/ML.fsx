@@ -47,3 +47,20 @@ Chart.Point([1;2;3],[1;2;3],Name="scattern")
 
 
 
+(**
+BioFSharp ML module 
+--------------------
+Principal component analysis of the iris data set and visual inspection of the result.
+*)
+open BioFSharp.Stats.ML
+open BioFSharp.Stats.ML.Unsupervised
+
+
+let adjCenter = PCA.toAdjustCenter irisFeaturesMatrix
+let irisPCA = PCA.compute adjCenter irisFeaturesMatrix
+let irisDataPCA = PCA.transform adjCenter irisPCA irisFeaturesMatrix
+let irisrev = PCA.revert adjCenter irisPCA irisDataPCA
+
+
+
+
