@@ -36,22 +36,162 @@
           
 <h1><a name="Introducing-your-project" class="anchor" href="#Introducing-your-project">Introducing your project</a></h1>
 <p>Say more</p>
-<table class="pre"><tr><td class="lines"><pre class="fssnip"><span class="l">1: </span>
-<span class="l">2: </span>
-<span class="l">3: </span>
-<span class="l">4: </span>
+<table class="pre"><tr><td class="lines"><pre class="fssnip"><span class="l"> 1: </span>
+<span class="l"> 2: </span>
+<span class="l"> 3: </span>
+<span class="l"> 4: </span>
+<span class="l"> 5: </span>
+<span class="l"> 6: </span>
+<span class="l"> 7: </span>
+<span class="l"> 8: </span>
+<span class="l"> 9: </span>
+<span class="l">10: </span>
 </pre></td>
-<td class="snippet"><pre class="fssnip highlighted"><code lang="fsharp"><span class="prep">#r</span> <span class="s">&quot;BioFSharp.Stats.dll&quot;</span>
-<span class="k">open</span> <span onmouseout="hideTip(event, 'fs1', 1)" onmouseover="showTip(event, 'fs1', 1)" class="i">BioFSharp</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs2', 2)" onmouseover="showTip(event, 'fs2', 2)" class="i">Stats</span>
+<td class="snippet"><pre class="fssnip highlighted"><code lang="fsharp"><span class="prep">#r</span> <span class="s">&quot;MathNet.Numerics.dll&quot;</span>
+<span class="prep">#r</span> <span class="s">&quot;MathNet.Numerics.FSharp.dll&quot;</span>
+<span class="k">open</span> <span onmouseout="hideTip(event, 'fs3', 3)" onmouseover="showTip(event, 'fs3', 3)" class="i">MathNet</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs4', 4)" onmouseover="showTip(event, 'fs4', 4)" class="i">Numerics</span>
+<span class="k">open</span> <span onmouseout="hideTip(event, 'fs3', 5)" onmouseover="showTip(event, 'fs3', 5)" class="i">MathNet</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs4', 6)" onmouseover="showTip(event, 'fs4', 6)" class="i">Numerics</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs5', 7)" onmouseover="showTip(event, 'fs5', 7)" class="i">LinearAlgebra</span>
+<span class="k">open</span> <span onmouseout="hideTip(event, 'fs3', 8)" onmouseover="showTip(event, 'fs3', 8)" class="i">MathNet</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs4', 9)" onmouseover="showTip(event, 'fs4', 9)" class="i">Numerics</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs5', 10)" onmouseover="showTip(event, 'fs5', 10)" class="i">LinearAlgebra</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs6', 11)" onmouseover="showTip(event, 'fs6', 11)" class="i">Double</span>
 
-<span class="i">Library</span><span class="o">.</span><span class="i">hello</span> <span class="n">0</span>
+
+<span class="prep">#r</span> <span class="s">&quot;BioFSharp.Stats.dll&quot;</span>
+<span class="k">open</span> <span onmouseout="hideTip(event, 'fs7', 12)" onmouseover="showTip(event, 'fs7', 12)" class="i">BioFSharp</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs8', 13)" onmouseover="showTip(event, 'fs8', 13)" class="i">Stats</span>
+<span class="k">open</span> <span onmouseout="hideTip(event, 'fs7', 14)" onmouseover="showTip(event, 'fs7', 14)" class="i">BioFSharp</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs8', 15)" onmouseover="showTip(event, 'fs8', 15)" class="i">Stats</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs9', 16)" onmouseover="showTip(event, 'fs9', 16)" class="i">Fitting</span>
 </code></pre></td>
 </tr>
 </table>
-<p>Some more info</p>
+<h2><a name="Linear-Regression" class="anchor" href="#Linear-Regression">Linear Regression</a></h2>
+<table class="pre"><tr><td class="lines"><pre class="fssnip"><span class="l"> 1: </span>
+<span class="l"> 2: </span>
+<span class="l"> 3: </span>
+<span class="l"> 4: </span>
+<span class="l"> 5: </span>
+<span class="l"> 6: </span>
+<span class="l"> 7: </span>
+<span class="l"> 8: </span>
+<span class="l"> 9: </span>
+<span class="l">10: </span>
+<span class="l">11: </span>
+<span class="l">12: </span>
+<span class="l">13: </span>
+<span class="l">14: </span>
+<span class="l">15: </span>
+<span class="l">16: </span>
+<span class="l">17: </span>
+<span class="l">18: </span>
+<span class="l">19: </span>
+<span class="l">20: </span>
+<span class="l">21: </span>
+<span class="l">22: </span>
+<span class="l">23: </span>
+<span class="l">24: </span>
+<span class="l">25: </span>
+<span class="l">26: </span>
+<span class="l">27: </span>
+<span class="l">28: </span>
+<span class="l">29: </span>
+<span class="l">30: </span>
+<span class="l">31: </span>
+<span class="l">32: </span>
+<span class="l">33: </span>
+<span class="l">34: </span>
+<span class="l">35: </span>
+<span class="l">36: </span>
+<span class="l">37: </span>
+<span class="l">38: </span>
+<span class="l">39: </span>
+<span class="l">40: </span>
+</pre></td>
+<td class="snippet"><pre class="fssnip highlighted"><code lang="fsharp"><span class="c">//let xVector = vector [0.25; 0.5; 1. ; 2.;]</span>
+<span class="c">//let yVector = vector [-9.48332; -8.61472;  -10.4905;  -11.0471;]</span>
 
-<div class="tip" id="fs1">namespace BioFSharp</div>
-<div class="tip" id="fs2">namespace BioFSharp.Stats</div>
+<span class="c">//let xVector = vector [0.25; 0.5; 1. ; 2.; 0.25; 0.5; 1. ; 2.; 0.25; 0.5; 1. ; 2.;]</span>
+<span class="c">//let yVector = vector [-9.48332; -8.61472;  -10.4905;  -11.0471; -8.27642;  -7.63456;  -11.4213;  -12.26; -6.01979;  -7.26284;  -8.65068;  -8.00442;]</span>
+
+<span class="c">// Test versus http://www.cyclismo.org/tutorial/R/linearLeastSquares.html</span>
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs10', 17)" onmouseover="showTip(event, 'fs10', 17)" class="i">xVector</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs11', 18)" onmouseover="showTip(event, 'fs11', 18)" class="f">vector</span> [<span class="n">2000.</span>;   <span class="n">2001.</span>;  <span class="n">2002.</span>;  <span class="n">2003.</span>;   <span class="n">2004.</span>;]
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs12', 19)" onmouseover="showTip(event, 'fs12', 19)" class="i">yVector</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs11', 20)" onmouseover="showTip(event, 'fs11', 20)" class="f">vector</span> [<span class="n">9.34</span>;   <span class="n">8.50</span>;  <span class="n">7.62</span>;  <span class="n">6.93</span>;  <span class="n">6.60</span>;]
+
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs13', 21)" onmouseover="showTip(event, 'fs13', 21)" class="i">coeff</span>   <span class="o">=</span> <span onmouseout="hideTip(event, 'fs14', 22)" onmouseover="showTip(event, 'fs14', 22)" class="t">Regression</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs15', 23)" onmouseover="showTip(event, 'fs15', 23)" class="t">Linear</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs16', 24)" onmouseover="showTip(event, 'fs16', 24)" class="f">coefficient</span> <span onmouseout="hideTip(event, 'fs10', 25)" onmouseover="showTip(event, 'fs10', 25)" class="i">xVector</span> <span onmouseout="hideTip(event, 'fs12', 26)" onmouseover="showTip(event, 'fs12', 26)" class="i">yVector</span>
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs17', 27)" onmouseover="showTip(event, 'fs17', 27)" class="f">fit</span>     <span class="o">=</span> <span onmouseout="hideTip(event, 'fs14', 28)" onmouseover="showTip(event, 'fs14', 28)" class="t">Regression</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs15', 29)" onmouseover="showTip(event, 'fs15', 29)" class="t">Linear</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs18', 30)" onmouseover="showTip(event, 'fs18', 30)" class="f">fit</span> <span onmouseout="hideTip(event, 'fs13', 31)" onmouseover="showTip(event, 'fs13', 31)" class="i">coeff</span>
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs19', 32)" onmouseover="showTip(event, 'fs19', 32)" class="i">regLine</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs10', 33)" onmouseover="showTip(event, 'fs10', 33)" class="i">xVector</span> <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs20', 34)" onmouseover="showTip(event, 'fs20', 34)" class="t">Vector</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs21', 35)" onmouseover="showTip(event, 'fs21', 35)" class="f">map</span> <span onmouseout="hideTip(event, 'fs17', 36)" onmouseover="showTip(event, 'fs17', 36)" class="f">fit</span>
+
+
+
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs22', 37)" onmouseover="showTip(event, 'fs22', 37)" class="i">summary</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs14', 38)" onmouseover="showTip(event, 'fs14', 38)" class="t">Regression</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs23', 39)" onmouseover="showTip(event, 'fs23', 39)" class="f">calulcateSumOfSquares</span> <span onmouseout="hideTip(event, 'fs17', 40)" onmouseover="showTip(event, 'fs17', 40)" class="f">fit</span> <span onmouseout="hideTip(event, 'fs10', 41)" onmouseover="showTip(event, 'fs10', 41)" class="i">xVector</span> <span onmouseout="hideTip(event, 'fs12', 42)" onmouseover="showTip(event, 'fs12', 42)" class="i">yVector</span>
+
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs24', 43)" onmouseover="showTip(event, 'fs24', 43)" class="i">rsquared</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs14', 44)" onmouseover="showTip(event, 'fs14', 44)" class="t">Regression</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs25', 45)" onmouseover="showTip(event, 'fs25', 45)" class="f">calulcateDetermination</span> <span onmouseout="hideTip(event, 'fs22', 46)" onmouseover="showTip(event, 'fs22', 46)" class="i">summary</span>
+
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs26', 47)" onmouseover="showTip(event, 'fs26', 47)" class="i">sigIntercept</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs14', 48)" onmouseover="showTip(event, 'fs14', 48)" class="t">Regression</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs27', 49)" onmouseover="showTip(event, 'fs27', 49)" class="f">ttestIntercept</span> <span onmouseout="hideTip(event, 'fs13', 50)" onmouseover="showTip(event, 'fs13', 50)" class="i">coeff</span><span class="o">.</span>[<span class="n">0</span>] <span onmouseout="hideTip(event, 'fs22', 51)" onmouseover="showTip(event, 'fs22', 51)" class="i">summary</span>
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs28', 52)" onmouseover="showTip(event, 'fs28', 52)" class="i">sigSlope</span>     <span class="o">=</span> <span onmouseout="hideTip(event, 'fs14', 53)" onmouseover="showTip(event, 'fs14', 53)" class="t">Regression</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs29', 54)" onmouseover="showTip(event, 'fs29', 54)" class="f">ttestSlope</span> <span onmouseout="hideTip(event, 'fs13', 55)" onmouseover="showTip(event, 'fs13', 55)" class="i">coeff</span><span class="o">.</span>[<span class="n">1</span>] <span onmouseout="hideTip(event, 'fs22', 56)" onmouseover="showTip(event, 'fs22', 56)" class="i">summary</span>
+
+
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs30', 57)" onmouseover="showTip(event, 'fs30', 57)" class="i">anova</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs14', 58)" onmouseover="showTip(event, 'fs14', 58)" class="t">Regression</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs15', 59)" onmouseover="showTip(event, 'fs15', 59)" class="t">Linear</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs31', 60)" onmouseover="showTip(event, 'fs31', 60)" class="f">calculateANOVA</span> <span onmouseout="hideTip(event, 'fs13', 61)" onmouseover="showTip(event, 'fs13', 61)" class="i">coeff</span> <span onmouseout="hideTip(event, 'fs10', 62)" onmouseover="showTip(event, 'fs10', 62)" class="i">xVector</span> <span onmouseout="hideTip(event, 'fs12', 63)" onmouseover="showTip(event, 'fs12', 63)" class="i">yVector</span>
+
+
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs32', 64)" onmouseover="showTip(event, 'fs32', 64)" class="i">aic</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs14', 65)" onmouseover="showTip(event, 'fs14', 65)" class="t">Regression</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs33', 66)" onmouseover="showTip(event, 'fs33', 66)" class="f">calcAIC</span> <span class="n">2.</span> <span onmouseout="hideTip(event, 'fs22', 67)" onmouseover="showTip(event, 'fs22', 67)" class="i">summary</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs34', 68)" onmouseover="showTip(event, 'fs34', 68)" class="i">Count</span> <span onmouseout="hideTip(event, 'fs22', 69)" onmouseover="showTip(event, 'fs22', 69)" class="i">summary</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs35', 70)" onmouseover="showTip(event, 'fs35', 70)" class="i">Error</span>
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs36', 71)" onmouseover="showTip(event, 'fs36', 71)" class="i">bic</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs14', 72)" onmouseover="showTip(event, 'fs14', 72)" class="t">Regression</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs37', 73)" onmouseover="showTip(event, 'fs37', 73)" class="f">calcBIC</span> <span class="n">2.</span> <span onmouseout="hideTip(event, 'fs22', 74)" onmouseover="showTip(event, 'fs22', 74)" class="i">summary</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs34', 75)" onmouseover="showTip(event, 'fs34', 75)" class="i">Count</span> <span onmouseout="hideTip(event, 'fs22', 76)" onmouseover="showTip(event, 'fs22', 76)" class="i">summary</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs35', 77)" onmouseover="showTip(event, 'fs35', 77)" class="i">Error</span>
+
+<span onmouseout="hideTip(event, 'fs14', 78)" onmouseover="showTip(event, 'fs14', 78)" class="t">Regression</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs38', 79)" onmouseover="showTip(event, 'fs38', 79)" class="f">getResiduals</span> <span onmouseout="hideTip(event, 'fs17', 80)" onmouseover="showTip(event, 'fs17', 80)" class="f">fit</span> <span onmouseout="hideTip(event, 'fs10', 81)" onmouseover="showTip(event, 'fs10', 81)" class="i">xVector</span> <span onmouseout="hideTip(event, 'fs12', 82)" onmouseover="showTip(event, 'fs12', 82)" class="i">yVector</span>
+<span onmouseout="hideTip(event, 'fs14', 83)" onmouseover="showTip(event, 'fs14', 83)" class="t">Regression</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs39', 84)" onmouseover="showTip(event, 'fs39', 84)" class="f">calculateSSE</span> <span onmouseout="hideTip(event, 'fs17', 85)" onmouseover="showTip(event, 'fs17', 85)" class="f">fit</span> <span onmouseout="hideTip(event, 'fs10', 86)" onmouseover="showTip(event, 'fs10', 86)" class="i">xVector</span> <span onmouseout="hideTip(event, 'fs12', 87)" onmouseover="showTip(event, 'fs12', 87)" class="i">yVector</span>
+
+
+[
+    <span onmouseout="hideTip(event, 'fs40', 88)" onmouseover="showTip(event, 'fs40', 88)" class="t">Chart</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs41', 89)" onmouseover="showTip(event, 'fs41', 89)" class="f">Point</span>(<span onmouseout="hideTip(event, 'fs42', 90)" onmouseover="showTip(event, 'fs42', 90)" class="t">Seq</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs43', 91)" onmouseover="showTip(event, 'fs43', 91)" class="f">zip</span> <span onmouseout="hideTip(event, 'fs10', 92)" onmouseover="showTip(event, 'fs10', 92)" class="i">xVector</span> <span onmouseout="hideTip(event, 'fs12', 93)" onmouseover="showTip(event, 'fs12', 93)" class="i">yVector</span>,<span class="i">Name</span><span class="o">=</span><span class="s">&quot;data points&quot;</span>);
+    <span onmouseout="hideTip(event, 'fs40', 94)" onmouseover="showTip(event, 'fs40', 94)" class="t">Chart</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs44', 95)" onmouseover="showTip(event, 'fs44', 95)" class="f">Line</span>(<span onmouseout="hideTip(event, 'fs42', 96)" onmouseover="showTip(event, 'fs42', 96)" class="t">Seq</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs43', 97)" onmouseover="showTip(event, 'fs43', 97)" class="f">zip</span> <span onmouseout="hideTip(event, 'fs10', 98)" onmouseover="showTip(event, 'fs10', 98)" class="i">xVector</span> <span onmouseout="hideTip(event, 'fs19', 99)" onmouseover="showTip(event, 'fs19', 99)" class="i">regLine</span>,<span class="i">Name</span> <span class="o">=</span><span class="s">&quot;regression&quot;</span>)
+]
+<span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs40', 100)" onmouseover="showTip(event, 'fs40', 100)" class="t">Chart</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs45', 101)" onmouseover="showTip(event, 'fs45', 101)" class="f">Combine</span>
+<span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs40', 102)" onmouseover="showTip(event, 'fs40', 102)" class="t">Chart</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs46', 103)" onmouseover="showTip(event, 'fs46', 103)" class="f">Show</span>
+</code></pre></td>
+</tr>
+</table>
+
+<div class="tip" id="fs1">Multiple items<br />namespace FSharp<br /><br />--------------------<br />namespace Microsoft.FSharp</div>
+<div class="tip" id="fs2">namespace FSharp.Plotly</div>
+<div class="tip" id="fs3">namespace MathNet</div>
+<div class="tip" id="fs4">namespace MathNet.Numerics</div>
+<div class="tip" id="fs5">namespace MathNet.Numerics.LinearAlgebra</div>
+<div class="tip" id="fs6">namespace MathNet.Numerics.LinearAlgebra.Double</div>
+<div class="tip" id="fs7">namespace BioFSharp</div>
+<div class="tip" id="fs8">namespace BioFSharp.Stats</div>
+<div class="tip" id="fs9">namespace BioFSharp.Stats.Fitting</div>
+<div class="tip" id="fs10">val xVector : Vector&lt;float&gt;<br /><br />Full name: Fitting.xVector</div>
+<div class="tip" id="fs11">val vector : lst:&#39;T list -&gt; Vector&lt;&#39;T&gt; (requires default constructor and value type and &#39;T :&gt; System.IEquatable&lt;&#39;T&gt; and &#39;T :&gt; System.IFormattable and &#39;T :&gt; System.ValueType)<br /><br />Full name: MathNet.Numerics.LinearAlgebra.VectorExtensions.vector</div>
+<div class="tip" id="fs12">val yVector : Vector&lt;float&gt;<br /><br />Full name: Fitting.yVector</div>
+<div class="tip" id="fs13">val coeff : Vector&lt;float&gt;<br /><br />Full name: Fitting.coeff</div>
+<div class="tip" id="fs14">module Regression<br /><br />from BioFSharp.Stats.Fitting</div>
+<div class="tip" id="fs15">module Linear<br /><br />from BioFSharp.Stats.Fitting.Regression</div>
+<div class="tip" id="fs16">val coefficient : x_data:Vector&lt;float&gt; -&gt; y_data:Vector&lt;float&gt; -&gt; Vector&lt;float&gt;<br /><br />Full name: BioFSharp.Stats.Fitting.Regression.Linear.coefficient</div>
+<div class="tip" id="fs17">val fit : (float -&gt; float)<br /><br />Full name: Fitting.fit</div>
+<div class="tip" id="fs18">val fit : coef:Vector&lt;float&gt; -&gt; x:float -&gt; float<br /><br />Full name: BioFSharp.Stats.Fitting.Regression.Linear.fit</div>
+<div class="tip" id="fs19">val regLine : Vector&lt;float&gt;<br /><br />Full name: Fitting.regLine</div>
+<div class="tip" id="fs20">Multiple items<br />type Vector =<br />&#160;&#160;inherit Vector&lt;float&gt;<br />&#160;&#160;member AbsoluteMaximum : unit -&gt; float<br />&#160;&#160;member AbsoluteMaximumIndex : unit -&gt; int<br />&#160;&#160;member AbsoluteMinimum : unit -&gt; float<br />&#160;&#160;member AbsoluteMinimumIndex : unit -&gt; int<br />&#160;&#160;member CoerceZero : threshold:float -&gt; unit<br />&#160;&#160;member InfinityNorm : unit -&gt; float<br />&#160;&#160;member L1Norm : unit -&gt; float<br />&#160;&#160;member L2Norm : unit -&gt; float<br />&#160;&#160;member MaximumIndex : unit -&gt; int<br />&#160;&#160;member MinimumIndex : unit -&gt; int<br />&#160;&#160;...<br /><br />Full name: MathNet.Numerics.LinearAlgebra.Double.Vector<br /><br />--------------------<br />type Vector&lt;&#39;T (requires default constructor and value type and &#39;T :&gt; IEquatable&lt;&#39;T&gt; and &#39;T :&gt; IFormattable and &#39;T :&gt; ValueType)&gt; =<br />&#160;&#160;member AbsoluteMaximum : unit -&gt; &#39;T<br />&#160;&#160;member AbsoluteMaximumIndex : unit -&gt; int<br />&#160;&#160;member AbsoluteMinimum : unit -&gt; &#39;T<br />&#160;&#160;member AbsoluteMinimumIndex : unit -&gt; int<br />&#160;&#160;member Add : scalar:&#39;T -&gt; Vector&lt;&#39;T&gt; + 3 overloads<br />&#160;&#160;member At : index:int -&gt; &#39;T + 1 overload<br />&#160;&#160;member Clear : unit -&gt; unit<br />&#160;&#160;member ClearSubVector : index:int * count:int -&gt; unit<br />&#160;&#160;member Clone : unit -&gt; Vector&lt;&#39;T&gt;<br />&#160;&#160;member CoerceZero : threshold:float -&gt; unit + 1 overload<br />&#160;&#160;...<br /><br />Full name: MathNet.Numerics.LinearAlgebra.Vector&lt;_&gt;</div>
+<div class="tip" id="fs21">val map : f:(&#39;a -&gt; &#39;b) -&gt; v:#Vector&lt;&#39;a&gt; -&gt; Vector&lt;&#39;b&gt; (requires default constructor and value type and &#39;a :&gt; System.IEquatable&lt;&#39;a&gt; and &#39;a :&gt; System.IFormattable and &#39;a :&gt; System.ValueType and default constructor and value type and &#39;b :&gt; System.IEquatable&lt;&#39;b&gt; and &#39;b :&gt; System.IFormattable and &#39;b :&gt; System.ValueType)<br /><br />Full name: MathNet.Numerics.LinearAlgebra.Vector.map</div>
+<div class="tip" id="fs22">val summary : Regression.SumOfSquares<br /><br />Full name: Fitting.summary</div>
+<div class="tip" id="fs23">val calulcateSumOfSquares : fitFunc:(float -&gt; float) -&gt; x_data:seq&lt;float&gt; -&gt; y_data:seq&lt;float&gt; -&gt; Regression.SumOfSquares<br /><br />Full name: BioFSharp.Stats.Fitting.Regression.calulcateSumOfSquares</div>
+<div class="tip" id="fs24">val rsquared : float<br /><br />Full name: Fitting.rsquared</div>
+<div class="tip" id="fs25">val calulcateDetermination : sumOfSqures:Regression.SumOfSquares -&gt; float<br /><br />Full name: BioFSharp.Stats.Fitting.Regression.calulcateDetermination</div>
+<div class="tip" id="fs26">val sigIntercept : Testing.TestStatistics.TTEST<br /><br />Full name: Fitting.sigIntercept</div>
+<div class="tip" id="fs27">val ttestIntercept : intercept:float -&gt; sumOfSqures:Regression.SumOfSquares -&gt; Testing.TestStatistics.TTEST<br /><br />Full name: BioFSharp.Stats.Fitting.Regression.ttestIntercept</div>
+<div class="tip" id="fs28">val sigSlope : Testing.TestStatistics.TTEST<br /><br />Full name: Fitting.sigSlope</div>
+<div class="tip" id="fs29">val ttestSlope : slope:float -&gt; sumOfSqures:Regression.SumOfSquares -&gt; Testing.TestStatistics.TTEST<br /><br />Full name: BioFSharp.Stats.Fitting.Regression.ttestSlope</div>
+<div class="tip" id="fs30">val anova : Testing.Anova.AnovaVariationSource []<br /><br />Full name: Fitting.anova</div>
+<div class="tip" id="fs31">val calculateANOVA : coef:Vector&lt;float&gt; -&gt; x_data:Vector&lt;float&gt; -&gt; y_data:Vector&lt;float&gt; -&gt; Testing.Anova.AnovaVariationSource []<br /><br />Full name: BioFSharp.Stats.Fitting.Regression.Linear.calculateANOVA</div>
+<div class="tip" id="fs32">val aic : float<br /><br />Full name: Fitting.aic</div>
+<div class="tip" id="fs33">val calcAIC : k:float -&gt; n:float -&gt; sse:float -&gt; float<br /><br />Full name: BioFSharp.Stats.Fitting.Regression.calcAIC</div>
+<div class="tip" id="fs34">Regression.SumOfSquares.Count: float</div>
+<div class="tip" id="fs35">Regression.SumOfSquares.Error: float</div>
+<div class="tip" id="fs36">val bic : float<br /><br />Full name: Fitting.bic</div>
+<div class="tip" id="fs37">val calcBIC : k:float -&gt; n:float -&gt; sse:float -&gt; float<br /><br />Full name: BioFSharp.Stats.Fitting.Regression.calcBIC</div>
+<div class="tip" id="fs38">val getResiduals : fitFunc:(float -&gt; float) -&gt; x_data:Vector&lt;float&gt; -&gt; y_data:Vector&lt;float&gt; -&gt; seq&lt;float&gt;<br /><br />Full name: BioFSharp.Stats.Fitting.Regression.getResiduals</div>
+<div class="tip" id="fs39">val calculateSSE : fitFunc:(float -&gt; float) -&gt; x_data:Vector&lt;float&gt; -&gt; y_data:Vector&lt;float&gt; -&gt; float<br /><br />Full name: BioFSharp.Stats.Fitting.Regression.calculateSSE</div>
+<div class="tip" id="fs40">type Chart =<br />&#160;&#160;static member Area : xy:seq&lt;#IConvertible * #IConvertible&gt; * ?Name:string * ?ShowMarkers:bool * ?Showlegend:bool * ?MarkerSymbol:Symbol * ?Color:&#39;a2 * ?Opacity:float * ?Labels:seq&lt;#IConvertible&gt; * ?TextPosition:TextPosition * ?TextFont:FontOptions * ?Dash:DrawingStyle * ?Width:&#39;a4 -&gt; GenericChart<br />&#160;&#160;static member Area : x:seq&lt;#IConvertible&gt; * y:seq&lt;#IConvertible&gt; * ?Name:string * ?ShowMarkers:bool * ?Showlegend:bool * ?MarkerSymbol:Symbol * ?Color:&#39;a2 * ?Opacity:float * ?Labels:seq&lt;#IConvertible&gt; * ?TextPosition:TextPosition * ?TextFont:FontOptions * ?Dash:DrawingStyle * ?Width:&#39;a4 -&gt; GenericChart<br />&#160;&#160;static member Bar : keysvalues:seq&lt;#IConvertible * #IConvertible&gt; * ?Name:string * ?Showlegend:bool * ?Color:&#39;a2 * ?Opacity:float * ?Labels:seq&lt;#IConvertible&gt; * ?TextPosition:TextPosition * ?TextFont:FontOptions * ?Marker:(Marker -&gt; Marker) -&gt; GenericChart<br />&#160;&#160;static member Bar : keys:seq&lt;#IConvertible&gt; * values:seq&lt;#IConvertible&gt; * ?Name:string * ?Showlegend:bool * ?Color:&#39;a2 * ?Opacity:float * ?Labels:seq&lt;#IConvertible&gt; * ?TextPosition:TextPosition * ?TextFont:FontOptions * ?Marker:(Marker -&gt; Marker) -&gt; GenericChart<br />&#160;&#160;static member BoxPlot : xy:seq&lt;&#39;a0 * &#39;a1&gt; * ?Name:string * ?Showlegend:bool * ?Color:string * ?Opacity:float * ?Whiskerwidth:float * ?Boxpoints:Boxpoints * ?Boxmean:BoxMean * ?Jitter:float * ?Pointpos:float * ?Orientation:Orientation -&gt; GenericChart<br />&#160;&#160;static member BoxPlot : ?x:&#39;a0 * ?y:&#39;a1 * ?Name:string * ?Showlegend:bool * ?Color:string * ?Opacity:float * ?Whiskerwidth:float * ?Boxpoints:Boxpoints * ?Boxmean:BoxMean * ?Jitter:float * ?Pointpos:float * ?Orientation:Orientation -&gt; GenericChart<br />&#160;&#160;static member Bubble : xysizes:seq&lt;#IConvertible * #IConvertible * #IConvertible&gt; * ?Name:string * ?Showlegend:bool * ?MarkerSymbol:Symbol * ?Color:&#39;a3 * ?Opacity:float * ?Labels:seq&lt;#IConvertible&gt; * ?TextPosition:TextPosition * ?TextFont:FontOptions -&gt; GenericChart<br />&#160;&#160;static member Bubble : x:seq&lt;#IConvertible&gt; * y:seq&lt;#IConvertible&gt; * sizes:seq&lt;#IConvertible&gt; * ?Name:string * ?Showlegend:bool * ?MarkerSymbol:Symbol * ?Color:&#39;a3 * ?Opacity:float * ?Labels:seq&lt;#IConvertible&gt; * ?TextPosition:TextPosition * ?TextFont:FontOptions -&gt; GenericChart<br />&#160;&#160;static member Column : keysvalues:seq&lt;#IConvertible * #IConvertible&gt; * ?Name:string * ?Showlegend:bool * ?Color:&#39;a2 * ?Opacity:float * ?Labels:seq&lt;#IConvertible&gt; * ?TextPosition:TextPosition * ?TextFont:FontOptions * ?Marker:(Marker -&gt; Marker) -&gt; GenericChart<br />&#160;&#160;static member Column : keys:seq&lt;#IConvertible&gt; * values:seq&lt;#IConvertible&gt; * ?Name:string * ?Showlegend:bool * ?Color:&#39;a2 * ?Opacity:float * ?Labels:seq&lt;#IConvertible&gt; * ?TextPosition:TextPosition * ?TextFont:FontOptions * ?Marker:(Marker -&gt; Marker) -&gt; GenericChart<br />&#160;&#160;...<br /><br />Full name: FSharp.Plotly.Chart</div>
+<div class="tip" id="fs41">static member Chart.Point : xy:seq&lt;#System.IConvertible * #System.IConvertible&gt; * ?Name:string * ?Showlegend:bool * ?MarkerSymbol:StyleOption.Symbol * ?Color:&#39;c * ?Opacity:float * ?Labels:seq&lt;#System.IConvertible&gt; * ?TextPosition:StyleOption.TextPosition * ?TextFont:FontOptions -&gt; GenericChart.GenericChart<br />static member Chart.Point : x:seq&lt;#System.IConvertible&gt; * y:seq&lt;#System.IConvertible&gt; * ?Name:string * ?Showlegend:bool * ?MarkerSymbol:StyleOption.Symbol * ?Color:&#39;a2 * ?Opacity:float * ?Labels:seq&lt;#System.IConvertible&gt; * ?TextPosition:StyleOption.TextPosition * ?TextFont:FontOptions -&gt; GenericChart.GenericChart</div>
+<div class="tip" id="fs42">module Seq<br /><br />from Microsoft.FSharp.Collections</div>
+<div class="tip" id="fs43">val zip : source1:seq&lt;&#39;T1&gt; -&gt; source2:seq&lt;&#39;T2&gt; -&gt; seq&lt;&#39;T1 * &#39;T2&gt;<br /><br />Full name: Microsoft.FSharp.Collections.Seq.zip</div>
+<div class="tip" id="fs44">static member Chart.Line : xy:seq&lt;#System.IConvertible * #System.IConvertible&gt; * ?Name:string * ?ShowMarkers:bool * ?Showlegend:bool * ?MarkerSymbol:StyleOption.Symbol * ?Color:&#39;c * ?Opacity:float * ?Labels:seq&lt;#System.IConvertible&gt; * ?TextPosition:StyleOption.TextPosition * ?TextFont:FontOptions * ?Dash:StyleOption.DrawingStyle * ?Width:&#39;e -&gt; GenericChart.GenericChart<br />static member Chart.Line : x:seq&lt;#System.IConvertible&gt; * y:seq&lt;#System.IConvertible&gt; * ?Name:string * ?ShowMarkers:bool * ?Showlegend:bool * ?MarkerSymbol:StyleOption.Symbol * ?Color:&#39;a2 * ?Opacity:float * ?Labels:seq&lt;#System.IConvertible&gt; * ?TextPosition:StyleOption.TextPosition * ?TextFont:FontOptions * ?Dash:StyleOption.DrawingStyle * ?Width:&#39;a4 -&gt; GenericChart.GenericChart</div>
+<div class="tip" id="fs45">static member Chart.Combine : gCharts:seq&lt;GenericChart.GenericChart&gt; -&gt; GenericChart.GenericChart</div>
+<div class="tip" id="fs46">static member Chart.Show : ch:GenericChart.GenericChart -&gt; unit</div>
 
         </div>
         <div class="span3">
