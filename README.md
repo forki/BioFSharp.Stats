@@ -1,8 +1,8 @@
 BioFSharp.Stats
 ===============
 
-BioFSharp.Stats aims to be a user-friendly library for Bioinformatics written in F#. It contains the basic data 
-structures for common biological objects like amino acids and nucleotides based on chemical formulas and chemical elements. 
+BioFSharp.Stats aims to be a user-friendly library for statistics used in bioinformatics written in F#. 
+
 
 It is the first alpha version 0.0.1 and thought as a starting point for bioinformatics in F#.
 
