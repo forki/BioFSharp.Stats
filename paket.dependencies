@@ -10,7 +10,9 @@ group Build
   nuget FAKE
   nuget FSharp.Formatting
 
-  github fsharp/FAKE modules/Octokit/Octokit.fsx
+  github fsharp/FAKE modules/Octokit/Octokit.fsx  
+
+  nuget FSharp.Plotly
 
 group Test
   source https://nuget.org/api/v2
