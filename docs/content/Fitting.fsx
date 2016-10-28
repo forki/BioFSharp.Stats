@@ -31,11 +31,6 @@ Linear Regression
 -----------------
 *)
 
-//let xVector = vector [0.25; 0.5; 1. ; 2.;]
-//let yVector = vector [-9.48332; -8.61472;  -10.4905;  -11.0471;]
-
-//let xVector = vector [0.25; 0.5; 1. ; 2.; 0.25; 0.5; 1. ; 2.; 0.25; 0.5; 1. ; 2.;]
-//let yVector = vector [-9.48332; -8.61472;  -10.4905;  -11.0471; -8.27642;  -7.63456;  -11.4213;  -12.26; -6.01979;  -7.26284;  -8.65068;  -8.00442;]
 
 // Test versus http://www.cyclismo.org/tutorial/R/linearLeastSquares.html
 let xVector = vector [2000.;   2001.;  2002.;  2003.;   2004.;]
@@ -64,14 +59,13 @@ let bic = Regression.calcBIC 2. summary.Count summary.Error
 Regression.getResiduals fit xVector yVector
 Regression.calculateSSE fit xVector yVector
 
-
+(*** define-output:regression1 ***)
 [
     Chart.Point(Seq.zip xVector yVector,Name="data points");
     Chart.Line(Seq.zip xVector regLine,Name ="regression")
 ]
 |> Chart.Combine
-|> Chart.Show
-
+(*** include-it:regression1 ***)
 
 
 
