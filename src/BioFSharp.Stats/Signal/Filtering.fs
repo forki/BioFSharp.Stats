@@ -66,8 +66,8 @@ module Filtering =
                 vector [x * y]
             else
                 let n = x.Count
-                vector [ for i=0 to y.Count-n do
-                        yield x * y.[i..i+n-1] ]
+                vector [ for i=1 to y.Count-n do
+                            yield x * y.[i..i+n-1] ]
 
 
         if window_size % 2 <> 1 || window_size < 1 then

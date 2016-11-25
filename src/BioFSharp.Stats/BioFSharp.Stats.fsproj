@@ -95,6 +95,7 @@
     <Compile Include="Fitting\Spline.fs" />
     <!-- Signal -->
     <Compile Include="Signal\Filtering.fs" />
+    <Compile Include="Signal\Baseline.fs" />
     <!-- ML -->
     <Compile Include="ML\DistanceMetrics.fs" />
     <Compile Include="ML\Impute.fs" />
